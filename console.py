@@ -48,7 +48,11 @@ class HBNBCommand(cmd.Cmd):
         print("")
         return True
 
-
+def emptyline(self):
+    """
+    Do nothing when an empty line is entered.
+    """
+    pass
 
 >>>>>>> refs/remotes/origin/master
 
