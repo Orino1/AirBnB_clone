@@ -8,7 +8,7 @@ comsole mdule
 
 
 class HBNBCommand(cmd.Cmd):
-    """HBNBCommand"""
+    """HBNBCommand class"""
     def __init__(self, prompt='(hbnb) '):
         """making the prompt = '(hbnb) '"""
         super().__init__()
