@@ -13,7 +13,12 @@ class HBNBCommand(cmd.Cmd):
         Quit command to exit the program
         """
         return True
-
+    def do_EOF(self, arg):
+        """
+        Exit the program (Ctrl-D).
+        """
+        print("")
+        return True
     def emptyline(self):
         """
         Do nothing when an empty line is entered.
