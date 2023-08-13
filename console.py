@@ -1,27 +1,24 @@
 #!/usr/bin/python3
 import cmd
+"""
+comsole mdule
+
+"""
 
 
 class HBNBCommand(cmd.Cmd):
-    """hbnbcommand class"""
+    """HBNBCommand"""
     def __init__(self, prompt='(hbnb) '):
-        """init"""
+        """making the prompt = '(hbnb) '"""
         super().__init__()
         self.prompt = prompt
 
-    def do_help(self, args):
-        """displays help"""
-        if args == "quit" or args == "EOF":
-            print("Quit command to exit the program")
-        else:
-            print("EOF  help  quit")
-
     def do_quit(self, args):
-        """quits shell"""
+        """Quit command to exit the program"""
         exit()
 
     def do_EOF(self, args):
-        """quits shell"""
+        """EOF command to exit the program"""
         exit()
 
 if __name__ == '__main__':
