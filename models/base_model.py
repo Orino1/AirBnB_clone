@@ -11,10 +11,10 @@ import models
 
 class BaseModel:
     """
-    BaseModel class.
+    BaseModel class
 
     Attributes:
-        id (str): Unique identifier (uuid).
+        id (str): Unique id (uuid).
         created_at (datetime.datetime onject): Creation timestamp.
         updated_at (datetime.datetime object): Update timestamp.
     """
@@ -23,13 +23,13 @@ class BaseModel:
         """
         Initialize a new BaseModel instance.
             If a dictionary of a basemodel is passed as **kwarg:
-              1.Sets all atributes from the dictionary **kwargs
+              1.Set all atributes from the dictionary **kwargs
                other than "__class__" key.
               2.Convert created_at/updated_at to datetime objects
                before setting them as attributes.
             No **kwarg passed:
               1.Sets id to a random uuid4.
-              2.Sets created_at/updated_at to the current date and time.
+              2.Sets created_at and updated_at to the current date and time.
 
         No_return value.
         """
