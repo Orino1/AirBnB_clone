@@ -52,13 +52,7 @@ class BaseModel:
             self.updated_at = datetime.datetime.now()
             models.storage.new(self)
 
-    def __str__(self):
-        """
-        Return a string representation of the object.
-
-        Return (str): With format: "[className] (id) __dict__"
-        """
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+    
 
     def save(self):
         """
