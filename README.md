@@ -7,3 +7,6 @@ console commands:
 	_help: lists the console's cocommands
 	_quit: quits the programme
 	_EOF: quits the programme
+	_create: Creates a new instance of BaseModel
+	_show: Prints the string representation of an instance based on the class name and id
+	_destroy: Deletes an instance based on the class name and id
