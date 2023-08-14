@@ -51,7 +51,7 @@ class FileStorage:
         No_return value.
         """
         with open(self.__file_path, "w", encoding="utf-8") as json_file:
-            json.dump(self.__objects)
+            json.dump(self.__objects, json_file)
 
     def reload(self):
         """
