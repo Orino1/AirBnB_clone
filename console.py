@@ -5,7 +5,7 @@ A basic command interpreter model.
 import cmd
 from models.base_model import BaseModel
 from models import storage
-
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -13,6 +13,7 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
+    classes = {"BaseModel": BaseModel, "User": User }
 
     def do_quit(self, arg):
         """
@@ -42,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             # Note_to_self: return save you from nested hell
             return
-        if arg != "BaseModel":
+        if arg not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
         new_instance = eval(f"{arg}()")
@@ -59,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
             return
         args = arg.split(' ')
         if len(args) == 2:
-            if args[0] != "BaseModel":
+            if args[0] not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
             obj_key = f"{args[0]}.{args[1]}"
@@ -87,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
         if len(args) == 2:
-            if args[0] != "BaseModel":
+            if args[0] not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
             key = f"{args[0]}.{args[1]}"
@@ -111,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
             return
         args = arg.split(' ')
         if len(args) == 1:
-            if args[0] != "BaseModel":
+            if args[0] not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
             else:
@@ -142,7 +143,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split(' ')
         # THIS IS JUST A HACK
         if len(args) == 1:
-            if args[0] == "BaseModel":
+            if args[0] in HBNBCommand.classes:
                 print("** instance id missing **")
                 return
             else:
@@ -152,12 +153,15 @@ class HBNBCommand(cmd.Cmd):
             key = f"{args[0]}.{args[1]}"
             if key in storage.all():
                 print("** attribute name missing **")
+                return
             else:
                 print("** no instance found **")
+                return
         if len(args) == 3:
             print("** value missing **")
+            return
         if len(args) > 3:
-            if args[0] != "BaseModel":
+            if args[0] not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
             key = f"{args[0]}.{args[1]}"
