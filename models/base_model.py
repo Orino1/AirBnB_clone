@@ -60,7 +60,14 @@ class BaseModel:
         """
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
-    
+    def save(self):
+        """
+        Update the updated_at attribute to the current date and time.
+
+        No_return value.
+        """
+        self.updated_at = datetime.datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """
