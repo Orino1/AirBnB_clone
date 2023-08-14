@@ -33,8 +33,6 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
-<<<<<<< HEAD
-=======
     def do_create(self, arg):
         """
         Create a new instance of BaseModel, save it (to the JSON file),
@@ -127,6 +125,5 @@ class HBNBCommand(cmd.Cmd):
         pass
 
 
->>>>>>> fa7f32152f318c1b1a311c89f58a36aedcd35a71
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
