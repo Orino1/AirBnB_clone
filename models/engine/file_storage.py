@@ -18,7 +18,7 @@ class FileStorage:
             __objects: a dictionary of objects (BaseModel)
     """
 
-    __file_path = "storage.json"
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
@@ -41,8 +41,9 @@ class FileStorage:
 
         No_return_value.
         """
+        # Here should be a string reporesentation str not .to_dict()
         key = f"{obj.__class__.__name__}.{obj.id}"
-        FileStorage.__objects[key] = obj.to_dict()
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """
@@ -50,7 +51,11 @@ class FileStorage:
 
         No_return value.
         """
+        # here we will save the object with .to_dict() so we can recreate them
+        objects = FileStorage.__objects.copy()
         with open(self.__file_path, "w", encoding="utf-8") as json_file:
+            for key, value in objects.items():
+                objects[key] = value.to_dict()
             json.dump(self.__objects, json_file)
 
     def reload(self):
@@ -60,6 +65,11 @@ class FileStorage:
 
         No_return_value.
         """
+        # lead the dict from json file > creat an object from dict(value)
+        # then assigne the new object to __objects 
+        objects = {}
         if os.path.exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as json_file:
-                FileStorage.__objects = json.load(json_file)
+                objects = json.load(json_file)
+                for key, value in objects.items():
+                    FileStorage.__objects[key] = BaseModel(**value)
