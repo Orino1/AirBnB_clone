@@ -166,6 +166,13 @@ class HBNBCommand(cmd.Cmd):
                 return
             if '"' in args[3]:
                 args[3] = args[3].strip('"')
+            # Im assuming that "" mean a string 
+            # float or int otherwise
+            else:
+                if "." in args[3]:
+                    args[3] = float(args[3])
+                else:
+                    args[3] = int(args[3])
             # I dont know what attributes should i convert the data for
             storage.all()[key].args[2] = args[3]
 
