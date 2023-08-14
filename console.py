@@ -84,17 +84,19 @@ class HBNBCommand(cmd.Cmd):
             return
         args = arg.split(' ')
         if len(args) == 1:
+            print("** instance id missing **")
+            return
+        if len(args) == 2:
             if args[0] != "BaseModel":
                 print("** class doesn't exist **")
                 return
-            key = f"{args[0]}.{args}"
+            key = f"{args[0]}.{args[1]}"
             if key in storage.all():
                 del storage.all()[key]
                 storage.save()
+                return
             else:
                 print("** no instance found **")
-        else:
-            print("** instance id missing **")
 
     def do_all(self, arg):
         """
