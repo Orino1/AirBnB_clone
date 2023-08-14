@@ -56,7 +56,7 @@ class FileStorage:
         with open(self.__file_path, "w", encoding="utf-8") as json_file:
             for key, value in objects.items():
                 objects[key] = value.to_dict()
-            json.dump(self.__objects, json_file)
+            json.dump(objects, json_file)
 
     def reload(self):
         """
@@ -65,7 +65,7 @@ class FileStorage:
 
         No_return_value.
         """
-        # lead the dict from json file > creat an object from dict(value)
+        # load the dict from json file > creat an object from dict(value)
         # then assigne the new object to __objects 
         objects = {}
         if os.path.exists(self.__file_path):
