@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
                 list_of_models.append(str(value))
             print(list_of_models)
             return
-        args = arg.split()
+        args = arg.split(' ')
         if len(args) == 1:
             if args[0] != "BaseModel":
                 print("** class doesn't exist **")
@@ -122,9 +122,52 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """
-        Not yet
+        Update instance attributes.
+        
+        Usage: update <class> <id> <attr> <value>
+        
+        Errors:
+        - Missing class name: ** class name missing **
+        - Unknown class: ** class doesn't exist **
+        - Missing instance id: ** instance id missing **
+        - Missing attribute name: ** attribute name missing **
+        - Instance not found: ** no instance found **
+        - Missing value: ** value missing **
+        
+        Example: update BaseModel 1234-5678-9012 name "John"
         """
-        pass
+        if arg == '':
+            print("** class name missing **")
+            return
+        args = arg.split(' ')
+        # THIS IS JUST A HACK
+        if len(args) == 1:
+            if args[0] == "BaseModel":
+                print("** instance id missing **")
+                return
+            else:
+                print("** class doesn't exist **")
+                return
+        if len(args) == 2:
+            key = f"{args[0]}.{args[1]}"
+            if key in storage.all():
+                print("** attribute name missing **")
+            else:
+                print("** no instance found **")
+        if len(args) == 3:
+            print("** value missing **")
+        if len(args) > 3:
+            if args[0] != "BaseModel":
+                print("** class doesn't exist **")
+                return
+            key = f"{args[0]}.{args[1]}"
+            if key not in storage.all():
+                print("** no instance found **")
+                return
+            if '"' in args[3]:
+                args[3] = args[3].strip('"')
+            # I dont know what attributes should i convert the data for
+            storage.all()[key].args[2] = args[3]
 
 
 if __name__ == '__main__':
