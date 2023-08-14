@@ -8,6 +8,7 @@ TODO: we need to complete the description of the model here.
 import os
 import json
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
@@ -20,7 +21,7 @@ class FileStorage:
 
     __file_path = "file.json"
     __objects = {}
-
+    classes = {"BaseModel": BaseModel, "User": User }
     def all(self):
         """
         Returns the dictionary of all objects currently stored.
@@ -72,4 +73,7 @@ class FileStorage:
             with open(self.__file_path, "r", encoding="utf-8") as json_file:
                 objects = json.load(json_file)
                 for key, value in objects.items():
-                    FileStorage.__objects[key] = BaseModel(**value)
+                    class_name = key.split('.')
+                    # Avoiding 80 line max rule
+                    cls_name = FileStorage.classes[class_name[0]]
+                    FileStorage.__objects[key] = cls_name(**value)
