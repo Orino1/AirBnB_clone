@@ -24,11 +24,3 @@ class User(BaseModel):
     first_name = ""
     last_name = ""
 
-    def __init__(self, *args, **kwargs):
-        """
-        Initialize User class
-        Args:
-            *args: Variable length argument list (Not used at the moment).
-            **kwargs: Arbitrary keyword arguments.
-        """
-        super().__init__(*args, **kwargs)
