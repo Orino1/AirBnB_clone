@@ -14,6 +14,7 @@ from models.amenity import Amenity
 from models.review import Review
 from models.state import State
 
+
 class HBNBCommand(cmd.Cmd):
     """
     A basic command interpreter class.
@@ -140,9 +141,9 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         """
         Update instance attributes.
-        
+
         Usage: update <class> <id> <attr> <value>
-        
+
         Errors:
         - Missing class name: ** class name missing **
         - Unknown class: ** class doesn't exist **
@@ -150,7 +151,7 @@ class HBNBCommand(cmd.Cmd):
         - Missing attribute name: ** attribute name missing **
         - Instance not found: ** no instance found **
         - Missing value: ** value missing **
-        
+
         Example: update BaseModel 1234-5678-9012 name "John"
         """
         if arg == '':
@@ -186,7 +187,7 @@ class HBNBCommand(cmd.Cmd):
                 return
             if '"' in args[3]:
                 args[3] = args[3].strip('"')
-            # Im assuming that "" mean a string 
+            # Im assuming that "" mean a string
             # float or int otherwise
             else:
                 if "." in args[3]:

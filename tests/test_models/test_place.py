@@ -15,7 +15,7 @@ class TestPlace(unittest.TestCase):
         """ """
         user_obj = Place()
         self.assertEqual(type(user_obj.name), str)
-    
+
     def test_city_id(self):
         """ """
         user_obj = Place()

@@ -15,7 +15,7 @@ class TestReview(unittest.TestCase):
         """ """
         user_obj = Review()
         self.assertEqual(type(user_obj.user_id), str)
-    
+
     def test_place_id(self):
         """ """
         user_obj = Review()

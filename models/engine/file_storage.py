@@ -81,7 +81,7 @@ class FileStorage:
         No_return_value.
         """
         # load the dict from json file > creat an object from dict(value)
-        # then assigne the new object to __objects 
+        # then assigne the new object to __objects
         objects = {}
         if os.path.exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as json_file:
