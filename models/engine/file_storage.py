@@ -3,7 +3,8 @@
 This module provides the FileStorage class, which manages
 the storage of objects in a JSON file.
 TODO: we need to complete the description of the model here.
-""
+"""
+
 import os
 import json
 from models.base_model import BaseModel
