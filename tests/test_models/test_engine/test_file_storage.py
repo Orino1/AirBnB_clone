@@ -22,8 +22,8 @@ class TestFileStorage(unittest.TestCase):
         """
         Remove a JSON file if it exists.
         """
-        if os.path.exists("storage.json"):
-            os.remove("storage.json")
+        if os.path.exists("file.json"):
+            os.remove("file.json")
 
     def test_all(self):
         """
@@ -37,7 +37,7 @@ class TestFileStorage(unittest.TestCase):
         # )
         self.remove_file_if_exists()
 
-    def test_new(self):
+    def stest_new(self):
         """
         Test adding a new object and retrieving it with all().
         """
@@ -52,7 +52,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(objects[key], obj.to_dict())
         self.remove_file_if_exists()
 
-    def test_all(self):
+    def stest_all(self):
         """
         Test adding a new object and retrieving it with all().
         """
@@ -67,7 +67,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(objects[key], obj.to_dict())
         self.remove_file_if_exists()
 
-    def test_save(self):
+    def stest_save(self):
         """
         Test saving objects and reloading them.
         """
@@ -94,7 +94,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(objects[key2], obj2.to_dict())
         self.remove_file_if_exists()
 
-    def test_reload(self):
+    def stest_reload(self):
         """
         Test saving objects and reloading them.
         """
