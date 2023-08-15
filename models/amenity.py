@@ -17,5 +17,4 @@ class Amenity(BaseModel):
         """
         Initialize Amenity class
         """
-
         super().__init__(*args, **kwargs)
