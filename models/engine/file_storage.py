@@ -35,6 +35,7 @@ class FileStorage:
         "Amenity": Amenity,
         "Review": Review
     }
+
     def all(self):
         """
         Returns the dictionary of all objects currently stored.
