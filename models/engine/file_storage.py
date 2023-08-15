@@ -57,7 +57,7 @@ class FileStorage:
         No_return_value.
         """
         # Here should be a string reporesentation str not .to_dict()
-        key = f"{obj.__class__.__name__}.{obj.id}"
+        key = f"{ob.__class__.__name__}.{obj.id}"
         FileStorage.__objects[key] = obj
 
     def save(self):
