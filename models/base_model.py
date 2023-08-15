@@ -18,7 +18,6 @@ class BaseModel:
         created_at (datetime.datetime onject): Creation timestamp.
         updated_at (datetime.datetime object): Update timestamp.
     """
-
     def __init__(self, *args, **kwargs):
         """
         Initialize a new BaseModel instance.
