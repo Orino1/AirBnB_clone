@@ -16,7 +16,7 @@ class User(BaseModel):
     Methods:
         __init__(*args, **kwargs):
             Initialize the User instance.
-            Inherits attributes from BaseModel. 
+            Inherits attributes from BaseModel.
     """
 
     email = ""
