@@ -27,4 +27,4 @@ class Place(BaseModel):
         """
         Initialize Place class
         """
-        super().__init__(*args, **kwargs
+        super().__init__(*args, **kwargs)
